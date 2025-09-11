@@ -1,7 +1,9 @@
 # ContactBookGit
 
 Afonso Bento, n°67787
+
 André Braga, n°65702
+
 Carla Loureiro, n°67873
 
 This is a starter kit for the first lab of the Software Engineering Course.
