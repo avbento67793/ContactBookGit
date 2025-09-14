@@ -158,23 +158,17 @@ public class Main {
     private static void get_Phone_By_Number(Scanner in, ContactBook cBook) {
         int phone = in.nextInt(); in.nextLine();
 
-        String name = null;
         if (cBook.getNumberOfContacts() != 0) {
             cBook.initializeIterator();
             while (cBook.hasNext()) {
                 Contact c = cBook.next();
                 int cPhone = c.getPhone();
                 if (cPhone == phone) {
-                    name = c.getName();
-                    break;
+                    System.out.println(c.getName());
+                    return;
                 }
             }
         }
-
-        if (name == null) {
-            System.out.println(NUMBER_DOES_NOT_EXIST);
-        } else {
-            System.out.println(name);
-        }
+        System.out.println(NUMBER_DOES_NOT_EXIST);
     }
 }
