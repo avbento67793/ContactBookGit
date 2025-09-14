@@ -1,6 +1,5 @@
 import contactBook.Contact;
 import contactBook.ContactBook;
-
 import java.util.Scanner;
 
 
@@ -18,12 +17,12 @@ public class Main {
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
-    public static final String CONTACT_EXISTS = "contactBook.Contact already exists.";
-    public static final String NAME_NOT_EXIST = "contactBook.Contact does not exist.";
-    public static final String CONTACT_ADDED = "contactBook.Contact added.";
-    public static final String CONTACT_REMOVED = "contactBook.Contact removed.";
-    public static final String CONTACT_UPDATED = "contactBook.Contact updated.";
-    public static final String BOOK_EMPTY = "contactBook.Contact book empty.";
+    public static final String CONTACT_EXISTS = "Contact already exists.";
+    public static final String NAME_NOT_EXIST = "Contact does not exist.";
+    public static final String CONTACT_ADDED = "Contact added.";
+    public static final String CONTACT_REMOVED = "Contact removed.";
+    public static final String CONTACT_UPDATED = "Contact updated.";
+    public static final String BOOK_EMPTY = "Contact book empty.";
     public static final String NUMBER_DOES_NOT_EXIST = "Phone number does not exist.";
     public static final String CONTACTS_SHARE_NUMBERS = "There are contacts that share phone numbers.";
     public static final String CONTACTS_HAVE_DIFFERENT_NUMBERS = "All contacts have different phone numbers.";
@@ -57,6 +56,9 @@ public class Main {
                     break;
                 case LIST_CONTACTS:
                     listAllContacts(cBook);
+                    break;
+                case GET_NUMBER:
+                    get_Phone_By_Number(in, cBook);
                     break;
                 default:
                     System.out.println(COMMAND_ERROR);
@@ -151,5 +153,28 @@ public class Main {
             }
         }
         else System.out.println(BOOK_EMPTY);
+    }
+
+    private static void get_Phone_By_Number(Scanner in, ContactBook cBook) {
+        int phone = in.nextInt(); in.nextLine();
+
+        String name = null;
+        if (cBook.getNumberOfContacts() != 0) {
+            cBook.initializeIterator();
+            while (cBook.hasNext()) {
+                Contact c = cBook.next();
+                int cPhone = c.getPhone();
+                if (cPhone == phone) {
+                    name = c.getName();
+                    break;
+                }
+            }
+        }
+
+        if (name == null) {
+            System.out.println(NUMBER_DOES_NOT_EXIST);
+        } else {
+            System.out.println(name);
+        }
     }
 }
