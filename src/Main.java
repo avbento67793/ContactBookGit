@@ -60,6 +60,9 @@ public class Main {
                 case GET_NUMBER:
                     get_Phone_By_Number(in, cBook);
                     break;
+                case EQUAL_PHONE:
+                    checkEqualPhones(cBook);
+                    break;
                 default:
                     System.out.println(COMMAND_ERROR);
             }
@@ -171,4 +174,12 @@ public class Main {
         }
         System.out.println(NUMBER_DOES_NOT_EXIST);
     }
+
+    private static void checkEqualPhones(ContactBook cBook) {
+    if (cBook.checkDoubleContacts()) {
+      System.out.println(CONTACTS_SHARE_NUMBERS);
+    } else {
+      System.out.println(CONTACTS_HAVE_DIFFERENT_NUMBERS);
+    }
+  }
 }
