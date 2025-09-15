@@ -13,7 +13,7 @@ public class Main {
     public static final String SET_EMAIL      = "SE";
     public static final String LIST_CONTACTS  = "LC";
     public static final String GET_NUMBER     = "GN";
-    public static final String EQUAL_PHONE    = "EP";
+    public static final String EQUAL_PHONE_NUMBER    = "EP";
     public static final String QUIT           = "Q";
 
     //Constantes que definem as mensagens para o utilizador
@@ -60,7 +60,7 @@ public class Main {
                 case GET_NUMBER:
                     get_Phone_By_Number(in, cBook);
                     break;
-                case EQUAL_PHONE:
+                case EQUAL_PHONE_NUMBER:
                     checkEqualPhones(cBook);
                     break;
                 default:
